@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
 
 const userSchema = new mongoose.Schema({
     name:{
@@ -20,25 +20,25 @@ const userSchema = new mongoose.Schema({
         type: String,
         required:[true, "Please enter a password"],
         minLength: [6, "Password must be atleast 6 characters"],
-        select: false
+        
     },
 
     posts:[
         {
-            id: mongoose.Schema.Types.ObjectId,
-            // ref: "Post"
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Post"
         }
     ],
     followers:[
         {
-            id: mongoose.Schema.Types.ObjectId,
-            // ref: "User"
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
         }
     ],
     followings:[
         {
-            id: mongoose.Schema.Types.ObjectId,
-            // ref: "User"
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
         }
     ]
 
